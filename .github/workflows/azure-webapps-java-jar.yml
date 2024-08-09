@@ -73,9 +73,9 @@ jobs:
       - name: Login via Azure CLI
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          client-id: '4a778446-3bca-4d7c-a523-d5c0c4f4aa4e'
+          tenant-id: 'ab1690cb-86ae-4d52-abcc-b93a1ab850fe'
+          subscription-id: '14f0e912-9471-4d4e-999c-007db8727504'
 
       - name: deploy to production with artifact
         uses: azure/spring-apps-deploy@v1
