@@ -16,8 +16,9 @@
 # For more information on GitHub Actions for Azure: https://github.com/Azure/Actions
 # For more information on the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # For more samples to get started with GitHub Action workflows to deploy to Azure: https://github.com/Azure/actions-workflow-samples
+# For spring app deploy :  https://github.com/Azure/spring-apps-deploy
 
-name: Build and deploy JAR app to Azure Web App
+name: Build and deploy Spring Boot App to Azure Spring App
 
 env:
   AZURE_WEBAPP_NAME: mywingding       # set this to the name of your Azure Web App
