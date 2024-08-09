@@ -1,0 +1,38 @@
+#  Template Java Gradle build
+
+#  This template allows you to test and build your Java project with Gradle.
+#  The workflow allows running tests, code checkstyle and security scans on the default branch.
+
+# Prerequisites: appropriate project structure should exist in the repository.
+
+image: gradle:8.9.0-jdk17-alpine
+
+pipelines:
+  default:
+    - step:
+        name: Compile code
+        caches:
+          - gradle
+        script:
+          - ./gradlew --version
+          - ./gradlew clean build
+        after-script:
+          - pipe: atlassian/checkstyle-report:0.3.0
+    - step:
+        name: Test CLI version
+        script:
+          - pipe: microsoft/azure-cli-run:1.1.0
+            variables:
+              AZURE_APP_ID: '4a778446-3bca-4d7c-a523-d5c0c4f4aa4e'
+              AZURE_PASSWORD: '5RH8Q~WCKfNf5zc1dcxCnY61nxMzse1IOph_jajw'
+              AZURE_TENANT_ID: 'ab1690cb-86ae-4d52-abcc-b93a1ab850fe'
+              CLI_COMMAND: 'az version'
+    - step:
+        name: Deploy to Azure v2
+        script:
+          - pipe: microsoft/azure-cli-run:1.1.0
+            variables:
+              AZURE_APP_ID: '4a778446-3bca-4d7c-a523-d5c0c4f4aa4e'
+              AZURE_PASSWORD: '5RH8Q~WCKfNf5zc1dcxCnY61nxMzse1IOph_jajw'
+              AZURE_TENANT_ID: 'ab1690cb-86ae-4d52-abcc-b93a1ab850fe'
+              CLI_COMMAND: 'az spring app deploy --name mywingding --resource-group rg-wingding-new --service wingdemo-app --artifact-path build/libs/hello-poc-0.0.1-SNAPSHOT.jar'
