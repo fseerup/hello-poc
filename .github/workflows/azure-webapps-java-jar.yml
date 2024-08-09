@@ -21,6 +21,7 @@ name: Build and deploy JAR app to Azure Web App
 
 env:
   AZURE_WEBAPP_NAME: mywingding       # set this to the name of your Azure Web App
+  AZURE_SERVICE_NAME: wingdemo-app    # set this to the service name of your Azure Web App
   JAVA_VERSION: '17'                  # set this to the Java version to use
   DISTRIBUTION: 'temurin'                  # set this to the Java distribution
   ASC_PACKAGE_PATH: ${{ github.workspace }}
@@ -81,7 +82,7 @@ jobs:
         with:
           azure-subscription: ${{ env.AZURE_SUBSCRIPTION }}
           action: Deploy
-          service-name: wingdemo-app
+          service-name: ${{ env.AZURE_SERVICE_NAME }}
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           use-staging-deployment: false
           package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
