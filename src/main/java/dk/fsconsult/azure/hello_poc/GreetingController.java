@@ -9,6 +9,6 @@ public class GreetingController {
 
 	@RequestMapping("/")
 	public @ResponseBody String greeting() {
-		return "Hello Github!";
+		return "Hello My Github!";
 	}
 }
