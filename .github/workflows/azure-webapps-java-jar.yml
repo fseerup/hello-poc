@@ -37,18 +37,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Java version
+      - name: Checkout sources
+        uses: actions/checkout@v4
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          java-version: ${{ env.JAVA_VERSION }}
-          distribution: ${{ env.DISTRIBUTION }}
-          cache: 'maven'
-
+          distribution: 'temurin'
+          java-version: 17
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
       - name: Build with Gradle
-        run: ./gradlew clean build
-
+        run: ./gradlew build
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
