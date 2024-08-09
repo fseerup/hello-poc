@@ -43,7 +43,7 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          distribution: '$DISTRIBUTION'
+          distribution: 'temurin'
           java-version: $JAVA_VERSION
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
