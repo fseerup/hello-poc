@@ -96,8 +96,8 @@ jobs:
           azcliversion: latest
           inlineScript: |
             ls -ls ${{ env.ASC_PACKAGE_PATH }}/*.jar
-#            az spring app deploy \
-#             --name hello-poc \
-#             --resource-group rg-mystuff-prod-west-europe \
-#             --service mystuff \
-#             --artifact-path ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
+            az spring app deploy \
+             --name hello-poc \
+             --resource-group rg-mystuff-prod-west-europe \
+             --service mystuff \
+             --artifact-path ${{ env.ASC_PACKAGE_PATH }}/*.jar
