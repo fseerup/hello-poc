@@ -80,7 +80,8 @@ jobs:
       - name: deploy to production with artifact
         uses: azure/spring-apps-deploy@v1
         with:
-          azure-subscription: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+#          azure-subscription: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          azure-subscription: 14f0e912-9471-4d4e-999c-007db8727504
           action: Deploy
 #          service-name: ${{ env.AZURE_SERVICE_NAME }}
           service-name: mystuff
