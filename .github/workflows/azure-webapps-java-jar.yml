@@ -82,7 +82,9 @@ jobs:
         with:
           azure-subscription: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           action: Deploy
-          service-name: ${{ env.AZURE_SERVICE_NAME }}
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+#          service-name: ${{ env.AZURE_SERVICE_NAME }}
+          service-name: hello-poc
+          app-name: mystuff
+ #        app-name: ${{ env.AZURE_WEBAPP_NAME }}
           use-staging-deployment: false
           package: ${{ env.ASC_PACKAGE_PATH }}/**/*.jar
