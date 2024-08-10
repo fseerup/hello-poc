@@ -95,7 +95,7 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            ls -ls ${{ env.ASC_PACKAGE_PATH }}
+            ls -ls ${{ env.ASC_PACKAGE_PATH }}/*.jar
 #            az spring app deploy \
 #             --name hello-poc \
 #             --resource-group rg-mystuff-prod-west-europe \
